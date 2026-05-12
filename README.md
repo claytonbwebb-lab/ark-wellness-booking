@@ -54,3 +54,4 @@ update profiles set role = 'admin' where email = 'hello@ark-wellness.life';
 See `supabase/schema.sql` for full schema.
 
 Tables: `profiles`, `locations`, `availability`, `bookings`
+# trigger
