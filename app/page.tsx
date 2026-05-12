@@ -1,17 +1,11 @@
 import { readFileSync } from 'fs'
 import { join } from 'path'
-import { NextResponse } from 'next/server'
 
-export const dynamic = 'force-static'
+export const dynamic = 'force-dynamic'
 
-export async function GET() {
-  const filePath = join(process.cwd(), 'public', 'original-site.html')
-  const html = readFileSync(filePath, 'utf8')
-  return new NextResponse(html, {
-    headers: { 'Content-Type': 'text/html; charset=utf-8' },
-  })
-}
-
-export default function Page() {
-  return null
+export default async function HomePage() {
+  const html = readFileSync(join(process.cwd(), 'public', 'original-site.html'), 'utf8')
+  return (
+    <div dangerouslySetInnerHTML={{ __html: html }} />
+  )
 }
