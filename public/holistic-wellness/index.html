@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Ark, Holistic Wellness Franchise Opportunity</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ark-cream: #F5F0E8;
+    --ark-cream-dark: #EDE6D6;
+    --ark-brown: #7B5B3A;
+    --ark-brown-dark: #5C3D1E;
+    --ark-brown-deep: #3D2510;
+    --ark-gold: #C4A35A;
+    --ark-gold-light: #D4B87A;
+    --ark-charcoal: #2A2420;
+    --ark-stone: #9E9282;
+    --ark-text: #3A2E26;
+    --ark-text-light: #6B5D52;
+    --section-pad: 5rem 2rem;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Jost', sans-serif; background: var(--ark-cream); color: var(--ark-text); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+  h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 400; line-height: 1.2; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0.75rem 2.5rem; display: flex; align-items: center; justify-content: space-between; background: rgba(245,240,232,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(196,163,90,0.2); }
+  .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+  .nav-logo img { height: 52px; width: auto; }
+  .nav-cta { background: var(--ark-brown-dark); color: var(--ark-cream); padding: 0.6rem 1.5rem; font-family: 'Jost', sans-serif; font-weight: 400; font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: background 0.3s ease; }
+  .nav-cta:hover { background: var(--ark-brown); }
+
+  /* HERO */
+  .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 76px; position: relative; overflow: hidden; }
+  .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 5rem 4rem 5rem 5rem; position: relative; z-index: 2; }
+  .hero-eyebrow { font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ark-gold); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+  .hero-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--ark-gold); }
+  .hero-h1 { font-size: clamp(2.4rem, 3.8vw, 3.8rem); color: var(--ark-brown-deep); margin-bottom: 1.5rem; font-weight: 500; }
+  .hero-h1 em { font-style: italic; color: var(--ark-brown); }
+  .hero-sub { font-size: 1.05rem; color: var(--ark-text-light); max-width: 480px; margin-bottom: 2.5rem; line-height: 1.8; }
+  .hero-ctas { display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-start; }
+  .btn-primary { background: var(--ark-brown-dark); color: var(--ark-cream); padding: 0.9rem 2.2rem; font-family: 'Jost', sans-serif; font-size: 0.82rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: all 0.3s ease; display: inline-block; }
+  .btn-primary:hover { background: var(--ark-brown); }
+  .btn-secondary { background: transparent; color: var(--ark-brown-dark); padding: 0.9rem 2.2rem; font-family: 'Jost', sans-serif; font-size: 0.82rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; border: 1px solid var(--ark-brown-dark); cursor: pointer; transition: all 0.3s ease; display: inline-block; }
+  .btn-secondary:hover { background: var(--ark-brown-dark); color: var(--ark-cream); }
+  .btn-ghost { background: transparent; color: var(--ark-stone); padding: 0.5rem 0; font-family: 'Jost', sans-serif; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border: none; border-bottom: 1px solid rgba(158,146,130,0.4); cursor: pointer; transition: all 0.3s ease; display: inline-block; }
+  .btn-ghost:hover { color: var(--ark-brown); border-bottom-color: var(--ark-brown); }
+  .hero-right { position: relative; overflow: hidden; }
+  .hero-right img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .hero-right-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(245,240,232,0.15), transparent); }
+
+  /* STAT BAR */
+  .hero-stat-bar { background: var(--ark-brown-deep); padding: 1.25rem 5rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .hero-stat { text-align: center; color: var(--ark-cream); }
+  .hero-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; display: block; color: var(--ark-gold-light); }
+  .hero-stat-label { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(245,240,232,0.6); margin-top: 0.2rem; display: block; }
+
+  /* SECTION HEADERS */
+  .section-header { text-align: center; margin-bottom: 3.5rem; }
+  .section-eyebrow { font-family: 'Jost', sans-serif; font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ark-gold); margin-bottom: 1rem; display: block; }
+  .section-h2 { font-size: clamp(2rem, 3vw, 3rem); color: var(--ark-brown-deep); font-weight: 300; max-width: 700px; margin: 0 auto 1rem; }
+  .section-h2 em { font-style: italic; color: var(--ark-brown); }
+  .section-intro { color: var(--ark-text-light); max-width: 580px; margin: 0 auto; font-size: 1rem; }
+
+  /* PROBLEM */
+  .problem-section { padding: var(--section-pad); background: var(--ark-cream-dark); }
+  .problem-grid { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .problem-card { background: var(--ark-cream); padding: 2rem; border-left: 2px solid var(--ark-gold); }
+  .problem-card h3 { font-size: 1.2rem; color: var(--ark-brown-dark); margin-bottom: 0.75rem; font-weight: 500; }
+  .problem-card p { font-size: 0.9rem; color: var(--ark-text-light); line-height: 1.7; }
+
+  /* GUIDE */
+  .guide-outer { padding: var(--section-pad); }
+  .guide-section { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .guide-image { position: relative; }
+  .guide-image img { width: 100%; height: 500px; object-fit: cover; object-position: center top; }
+  .guide-image-caption { position: absolute; bottom: -1.5rem; right: -1.5rem; background: var(--ark-brown-deep); color: var(--ark-cream); padding: 1.25rem 1.5rem; max-width: 220px; }
+  .guide-image-caption p { font-size: 0.8rem; line-height: 1.5; color: rgba(245,240,232,0.8); }
+  .guide-image-caption strong { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 400; display: block; color: var(--ark-gold-light); margin-bottom: 0.3rem; }
+  .guide-content h2 { font-size: clamp(1.8rem, 2.5vw, 2.6rem); color: var(--ark-brown-deep); margin-bottom: 1.25rem; font-weight: 300; }
+  .guide-content h2 em { font-style: italic; color: var(--ark-brown); }
+  .guide-content p { color: var(--ark-text-light); margin-bottom: 1.25rem; line-height: 1.8; }
+  .trust-badges { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+  .trust-badge { background: var(--ark-cream-dark); border: 1px solid rgba(196,163,90,0.3); padding: 0.4rem 1rem; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ark-brown); }
+
+  /* PLAN */
+  .plan-section { padding: var(--section-pad); background: var(--ark-brown-deep); }
+  .plan-section .section-eyebrow { color: var(--ark-gold-light); }
+  .plan-section .section-h2 { color: var(--ark-cream); }
+  .plan-section .section-intro { color: rgba(245,240,232,0.65); }
+  .plan-steps { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; position: relative; }
+  .plan-steps::before { content: ''; position: absolute; top: 2.4rem; left: calc(16.666% + 1px); right: calc(16.666% + 1px); height: 1px; background: rgba(196,163,90,0.3); }
+  .plan-step { padding: 0 2rem; text-align: center; position: relative; }
+  .step-num { width: 48px; height: 48px; border: 1px solid var(--ark-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--ark-gold-light); background: var(--ark-brown-deep); position: relative; z-index: 1; }
+  .plan-step h3 { font-size: 1.1rem; color: var(--ark-cream); margin-bottom: 0.75rem; font-weight: 400; }
+  .plan-step p { font-size: 0.85rem; color: rgba(245,240,232,0.6); line-height: 1.7; }
+
+  /* SESSIONS */
+  .sessions-section { padding: var(--section-pad); background: var(--ark-cream); }
+  .sessions-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .session-card { background: var(--ark-cream-dark); padding: 2rem; border-top: 2px solid var(--ark-gold); transition: transform 0.3s ease; }
+  .session-card:hover { transform: translateY(-4px); }
+  .session-price { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--ark-gold); margin-bottom: 0.5rem; display: block; }
+  .session-card h3 { font-size: 0.8rem; font-weight: 500; font-family: 'Jost', sans-serif; color: var(--ark-brown-dark); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; }
+  .session-card p { font-size: 0.85rem; color: var(--ark-text-light); line-height: 1.6; }
+
+  /* CLIENT BENEFITS */
+  .benefits-section { padding: var(--section-pad); background: var(--ark-brown-deep); }
+  .benefits-section .section-eyebrow { color: var(--ark-gold-light); }
+  .benefits-section .section-h2 { color: var(--ark-cream); }
+  .benefits-section .section-intro { color: rgba(245,240,232,0.65); }
+  .benefits-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .benefit-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(196,163,90,0.2); padding: 2rem; transition: border-color 0.3s ease; }
+  .benefit-card:hover { border-color: rgba(196,163,90,0.5); }
+  .benefit-icon { width: 44px; height: 44px; border: 1px solid var(--ark-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; }
+  .benefit-icon svg { width: 20px; height: 20px; }
+  .benefit-card h3 { font-size: 1.1rem; color: var(--ark-gold-light); margin-bottom: 0.75rem; font-weight: 400; }
+  .benefit-card p { font-size: 0.85rem; color: rgba(245,240,232,0.65); line-height: 1.7; }
+
+  /* SCIENCE */
+  .science-section { padding: var(--section-pad); background: var(--ark-cream-dark); }
+  .science-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .science-content h2 { font-size: clamp(1.8rem, 2.5vw, 2.6rem); color: var(--ark-brown-deep); margin-bottom: 1.5rem; font-weight: 300; }
+  .science-content h2 em { font-style: italic; color: var(--ark-brown); }
+  .science-points { list-style: none; display: flex; flex-direction: column; gap: 1.25rem; }
+  .science-point { display: flex; gap: 1rem; align-items: flex-start; }
+  .science-point-icon { width: 8px; height: 8px; background: var(--ark-gold); border-radius: 50%; flex-shrink: 0; margin-top: 0.6rem; }
+  .science-point-text { font-size: 0.9rem; color: var(--ark-text-light); line-height: 1.7; }
+  .science-point-text strong { color: var(--ark-brown-dark); font-weight: 500; }
+  .biometric-box { background: var(--ark-brown-deep); padding: 2.5rem; color: var(--ark-cream); }
+  .biometric-box h3 { font-size: 1.4rem; color: var(--ark-gold-light); margin-bottom: 1rem; font-weight: 300; }
+  .biometric-box p { font-size: 0.88rem; color: rgba(245,240,232,0.7); line-height: 1.8; margin-bottom: 1.25rem; }
+  .biometric-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+  .biometric-metric { background: rgba(255,255,255,0.06); padding: 1rem; text-align: center; }
+  .biometric-metric-val { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--ark-gold-light); display: block; }
+  .biometric-metric-label { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245,240,232,0.5); display: block; margin-top: 0.25rem; }
+
+  /* TESTIMONIALS */
+  .testimonials-section { padding: var(--section-pad); background: var(--ark-cream); }
+  .testimonials-grid { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+  .testimonial-card { background: var(--ark-cream-dark); padding: 2rem; position: relative; border-left: 3px solid var(--ark-gold); }
+  .testimonial-quote { font-family: 'Cormorant Garamond', serif; font-size: 3rem; color: var(--ark-gold); line-height: 0.5; margin-bottom: 1rem; display: block; }
+  .testimonial-text { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; color: var(--ark-brown-dark); line-height: 1.7; margin-bottom: 1rem; }
+  .testimonial-stars { display: flex; gap: 3px; margin-bottom: 0.75rem; }
+  .star { width: 12px; height: 12px; background: var(--ark-gold); clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); }
+  .testimonial-author { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ark-stone); }
+
+  /* LOCATIONS */
+  .locations-section { padding: var(--section-pad); background: var(--ark-cream-dark); }
+  .locations-grid { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+  .location-card { background: var(--ark-cream); padding: 1.75rem 1.5rem; border-top: 2px solid var(--ark-gold); text-align: center; }
+  .location-pin { width: 36px; height: 36px; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; }
+  .location-pin svg { width: 24px; height: 24px; fill: var(--ark-gold); }
+  .location-card h3 { font-size: 1rem; color: var(--ark-brown-dark); font-weight: 500; margin-bottom: 0.4rem; }
+  .location-card p { font-size: 0.8rem; color: var(--ark-text-light); letter-spacing: 0.05em; }
+
+  /* INVESTMENT */
+  .investment-section { padding: var(--section-pad); background: var(--ark-brown-deep); }
+  .investment-section .section-eyebrow { color: var(--ark-gold-light); }
+  .investment-section .section-h2 { color: var(--ark-cream); }
+  .investment-section .section-intro { color: rgba(245,240,232,0.6); }
+  .investment-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; }
+  .investment-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(196,163,90,0.25); padding: 2.5rem; }
+  .investment-card h3 { font-size: 1.4rem; color: var(--ark-gold-light); margin-bottom: 1.5rem; font-weight: 300; padding-bottom: 1rem; border-bottom: 1px solid rgba(196,163,90,0.2); }
+  .fee-table { width: 100%; border-collapse: collapse; }
+  .fee-table tr { border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .fee-table td { padding: 0.65rem 0; font-size: 0.85rem; color: rgba(245,240,232,0.7); vertical-align: top; }
+  .fee-table td:last-child { text-align: right; color: var(--ark-cream); font-weight: 400; }
+  .fee-table .highlight td { color: var(--ark-gold-light); }
+  .fee-table .highlight td:last-child { color: var(--ark-gold-light); font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; }
+  .territory-list { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; }
+  .territory-item { display: flex; gap: 1rem; align-items: flex-start; }
+  .territory-dot { width: 6px; height: 6px; background: var(--ark-gold); border-radius: 50%; flex-shrink: 0; margin-top: 0.55rem; }
+  .territory-text { font-size: 0.85rem; color: rgba(245,240,232,0.65); line-height: 1.6; }
+
+  /* CTA SECTION */
+  .cta-section { padding: var(--section-pad); background: var(--ark-cream-dark); }
+  .cta-container { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 0; background: var(--ark-cream); box-shadow: 0 20px 60px rgba(60,40,20,0.12); }
+  .cta-left { background: var(--ark-brown-deep); padding: 3.5rem; display: flex; flex-direction: column; justify-content: center; }
+  .cta-left h2 { font-size: 2rem; color: var(--ark-cream); margin-bottom: 1rem; font-weight: 300; }
+  .cta-left h2 em { font-style: italic; color: var(--ark-gold-light); }
+  .cta-left p { font-size: 0.88rem; color: rgba(245,240,232,0.65); line-height: 1.8; margin-bottom: 2rem; }
+  .cta-contact { margin-top: auto; }
+  .cta-contact-name { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--ark-gold-light); display: block; }
+  .cta-contact-role { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(245,240,232,0.45); display: block; margin-top: 0.2rem; }
+  .cta-right { padding: 3.5rem; }
+  .cta-right h3 { font-size: 1.4rem; color: var(--ark-brown-deep); margin-bottom: 1.75rem; font-weight: 300; }
+  .form-group { margin-bottom: 1.25rem; }
+  .form-group label { display: block; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ark-stone); margin-bottom: 0.4rem; }
+  .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.7rem 0.9rem; background: var(--ark-cream-dark); border: 1px solid rgba(123,91,58,0.2); color: var(--ark-text); font-family: 'Jost', sans-serif; font-size: 0.9rem; font-weight: 300; outline: none; transition: border-color 0.2s; appearance: none; }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--ark-brown); }
+  .form-group textarea { resize: vertical; min-height: 90px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-submit { width: 100%; padding: 1rem; background: var(--ark-brown-dark); color: var(--ark-cream); border: none; font-family: 'Jost', sans-serif; font-size: 0.82rem; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; transition: background 0.3s ease; margin-top: 0.5rem; }
+  .form-submit:hover { background: var(--ark-brown); }
+  .modal-success { display: none; text-align: center; padding: 2rem 0; }
+  .modal-success h3 { color: var(--ark-brown-dark); margin-bottom: 0.75rem; }
+  .modal-success p { color: var(--ark-text-light); }
+
+  /* CALL SECTION */
+  .call-section { padding: 4rem 2rem; background: var(--ark-gold); text-align: center; }
+  .call-section h2 { font-size: clamp(1.6rem, 2.5vw, 2.4rem); color: var(--ark-brown-deep); margin-bottom: 0.75rem; font-weight: 300; }
+  .call-section h2 em { font-style: italic; }
+  .call-section p { font-size: 0.9rem; color: rgba(61,37,16,0.75); margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+  .btn-dark { background: var(--ark-brown-deep); color: var(--ark-cream); padding: 1rem 2.5rem; font-family: 'Jost', sans-serif; font-size: 0.82rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: background 0.3s ease; display: inline-block; }
+  .btn-dark:hover { background: var(--ark-charcoal); }
+
+  /* TRY IT */
+  .try-section { padding: var(--section-pad); background: var(--ark-cream); display: grid; grid-template-columns: 1fr 1fr; min-height: 500px; }
+  .try-image { position: relative; overflow: hidden; }
+  .try-image img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+  .try-content { display: flex; flex-direction: column; justify-content: center; padding: 4rem; background: var(--ark-cream-dark); }
+  .try-content h2 { font-size: clamp(1.8rem, 2.5vw, 2.4rem); color: var(--ark-brown-deep); margin-bottom: 1rem; font-weight: 300; }
+  .try-content h2 em { font-style: italic; color: var(--ark-brown); }
+  .try-content p { font-size: 0.9rem; color: var(--ark-text-light); line-height: 1.8; margin-bottom: 2rem; max-width: 420px; }
+
+  /* FOOTER */
+  footer { background: var(--ark-charcoal); padding: 3rem 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  .footer-logo { display: flex; align-items: center; gap: 0.75rem; }
+  .footer-logo img { height: 44px; width: auto; }
+  .footer-copy { font-size: 0.75rem; color: rgba(245,240,232,0.35); letter-spacing: 0.05em; }
+  .footer-links { display: flex; gap: 1.5rem; }
+  .footer-link { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245,240,232,0.4); text-decoration: none; transition: color 0.2s; }
+  .footer-link:hover { color: var(--ark-gold-light); }
+
+  /* ANIMATIONS */
+  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+  .fade-up-delay-1 { transition-delay: 0.1s; }
+  .fade-up-delay-2 { transition-delay: 0.2s; }
+  .fade-up-delay-3 { transition-delay: 0.3s; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { min-height: 320px; }
+    .hero-left { padding: 4rem 2rem 2rem; }
+    .hero-stat-bar { padding: 1rem 2rem; }
+    .problem-grid { grid-template-columns: 1fr; }
+    .guide-section { grid-template-columns: 1fr; gap: 3rem; }
+    .guide-image-caption { display: none; }
+    .plan-steps { grid-template-columns: 1fr; }
+    .plan-steps::before { display: none; }
+    .sessions-grid { grid-template-columns: 1fr 1fr; }
+    .benefits-grid { grid-template-columns: 1fr 1fr; }
+    .science-grid { grid-template-columns: 1fr; }
+    .locations-grid { grid-template-columns: 1fr 1fr; }
+    .investment-grid { grid-template-columns: 1fr; }
+    .cta-container { grid-template-columns: 1fr; }
+    .cta-left { padding: 2.5rem 2rem; }
+    .cta-right { padding: 2.5rem 2rem; }
+    .try-section { grid-template-columns: 1fr; }
+    .try-image { min-height: 320px; }
+    .try-content { padding: 2.5rem 2rem; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+  }
+  @media (max-width: 600px) {
+    .hero-stat-bar { grid-template-columns: 1fr; text-align: left; }
+    .sessions-grid { grid-template-columns: 1fr; }
+    .benefits-grid { grid-template-columns: 1fr; }
+    .locations-grid { grid-template-columns: 1fr 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    nav { padding: 1rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="ark-logo.png" alt="The Ark logo" />
+  </a>
+  <a href="#get-information" class="nav-cta">Franchise Enquiry</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <span class="hero-eyebrow">UK Franchise Opportunity</span>
+    <h1 class="hero-h1">Your wellness centre just found its most powerful <em>differentiator.</em></h1>
+    <p class="hero-sub">The Ark is a science-validated sound and frequency therapy chamber that delivers measurable nervous system regulation in under 45 minutes, and it sits perfectly inside any existing holistic wellness practice.</p>
+    <div class="hero-ctas">
+      <a href="#get-information" class="btn-primary">Get the franchise information pack &rarr;</a>
+      <a href="#book-call" class="btn-secondary">Book a call with Martin</a>
+      <a href="#how-it-works" class="btn-ghost">See how it works</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="ark-chamber.jpg" alt="The Ark wellness chamber" />
+    <div class="hero-right-overlay"></div>
+  </div>
+</section>
+
+<!-- STAT BAR -->
+<div class="hero-stat-bar">
+  <div class="hero-stat">
+    <span class="hero-stat-num">90%</span>
+    <span class="hero-stat-label">of clients report 15&ndash;50% improvement in overall wellbeing</span>
+  </div>
+  <div class="hero-stat">
+    <span class="hero-stat-num">&pound;50&ndash;&pound;125</span>
+    <span class="hero-stat-label">per session, high-yield, low-staffing revenue stream</span>
+  </div>
+  <div class="hero-stat">
+    <span class="hero-stat-num">0</span>
+    <span class="hero-stat-label">direct competitors in most UK territories, move first</span>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="problem-section">
+  <div style="max-width:960px; margin:0 auto 3rem; text-align:center;">
+    <span class="section-eyebrow">The Challenge You Already Know</span>
+    <h2 class="section-h2">Running a wellness centre in 2026 is <em>harder than it looks</em></h2>
+  </div>
+  <div class="problem-grid">
+    <div class="problem-card fade-up">
+      <h3>Clients want proof, not promises</h3>
+      <p>Word-of-mouth and testimonials only go so far. An increasingly evidence-conscious market is asking for measurable outcomes before they commit to a block booking or refer a friend.</p>
+    </div>
+    <div class="problem-card fade-up fade-up-delay-1">
+      <h3>Revenue plateaus without new modalities</h3>
+      <p>Massage, reflexology, reiki, once your treatment menu is established, growth depends on adding something genuinely new. A single chamber running 6 sessions a day changes the numbers significantly.</p>
+    </div>
+    <div class="problem-card fade-up fade-up-delay-2">
+      <h3>Differentiation is getting harder</h3>
+      <p>The UK wellness market is growing fast but so is competition. The centres that stand out in the next three years will be the ones offering an experience clients simply cannot find anywhere else nearby.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GUIDE / FOUNDER -->
+<section class="guide-outer" id="how-it-works">
+  <div class="guide-section">
+    <div class="guide-image fade-up">
+      <img src="ark-biometric.jpg" alt="Ark practitioner reviewing biometric results with a client on a laptop at The Ark" />
+      <div class="guide-image-caption">
+        <strong>Martin O'Malley</strong>
+        <p>Founder, The Ark, Exclusive UK rights to the technology</p>
+      </div>
+    </div>
+    <div class="guide-content fade-up fade-up-delay-1">
+      <span class="section-eyebrow">Where Science Meets Soul</span>
+      <h2>The Ark was built by <em>practitioners, for practitioners</em></h2>
+      <p>Martin O'Malley didn't come from a marketing background. He built The Ark because he saw what it did for people, measurable, visible, emotional shifts that no other single therapy was delivering in under an hour.</p>
+      <p>The Ark combines low-frequency sound, quartz amplification and ECG-based biometric validation into a single, contained chamber experience. Every session starts and ends with a biometric reading. Your clients leave with data that shows the change in their own nervous system.</p>
+      <p>That biometric before-and-after is your most powerful conversion and retention tool. It's what turns a curious first-time client into a block booking.</p>
+      <div class="trust-badges">
+        <span class="trust-badge">ECG biometric validation</span>
+        <span class="trust-badge">Exclusive UK territory</span>
+        <span class="trust-badge">5-year initial term</span>
+        <span class="trust-badge">Full onboarding &amp; training</span>
+        <span class="trust-badge">Ongoing support</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS / PLAN -->
+<section class="plan-section">
+  <div class="section-header">
+    <span class="section-eyebrow">The Path to Launch</span>
+    <h2 class="section-h2">Three steps from <em>enquiry to open</em></h2>
+    <p class="section-intro">The Ark franchise is designed to integrate into your existing practice without disruption, minimal operational complexity, maximum client impact.</p>
+  </div>
+  <div class="plan-steps">
+    <div class="plan-step fade-up">
+      <div class="step-num">1</div>
+      <h3>Discovery &amp; Territory Confirmation</h3>
+      <p>Book a call with Martin. We confirm your territory is available and that your premises and business model are a strong fit. No pressure, just a conversation.</p>
+    </div>
+    <div class="plan-step fade-up fade-up-delay-1">
+      <div class="step-num">2</div>
+      <h3>Agreement &amp; Installation</h3>
+      <p>Once terms are agreed, Martin's team handles full delivery and installation. You receive comprehensive training and everything needed to deliver sessions professionally from day one.</p>
+    </div>
+    <div class="plan-step fade-up fade-up-delay-2">
+      <div class="step-num">3</div>
+      <h3>Launch &amp; Ongoing Growth</h3>
+      <p>Ongoing business support, access to marketing materials and a growing national network. The Ark's support doesn't stop at installation day, it's a long-term partnership.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SESSIONS / REVENUE -->
+<section class="sessions-section">
+  <div class="section-header">
+    <span class="section-eyebrow">Revenue Potential</span>
+    <h2 class="section-h2">Six session types, <em>all generating income</em> for your practice</h2>
+    <p class="section-intro">Each session type serves a distinct client need, from high-frequency regulars to specialist neurodiversity facilitation.</p>
+  </div>
+  <div class="sessions-grid">
+    <div class="session-card fade-up">
+      <span class="session-price">&pound;50&ndash;&pound;80</span>
+      <h3>60 Min, Regulate, Release &amp; Reset</h3>
+      <p>For busy clients or returning regulars. 35 minutes in the chamber with ECG scans before and after. 90% of clients report a 15&ndash;50% improvement in overall functionality.</p>
+    </div>
+    <div class="session-card fade-up fade-up-delay-1">
+      <span class="session-price">&pound;65&ndash;&pound;95</span>
+      <h3>75 Min, Signature Session</h3>
+      <p>The most popular entry point for new clients. 40 minutes in the chamber, ideal for those feeling emotionally, mentally or physically overloaded.</p>
+    </div>
+    <div class="session-card fade-up fade-up-delay-2">
+      <span class="session-price">&pound;85&ndash;&pound;125</span>
+      <h3>90 Min, Recalibrate &amp; Restore</h3>
+      <p>Full nervous system reset. Extended chamber time for deep release and full-system recalibration. High per-session yield for the practice.</p>
+    </div>
+    <div class="session-card fade-up">
+      <span class="session-price">&pound;100&ndash;&pound;150</span>
+      <h3>Co-Regulate, Couples &amp; Carers</h3>
+      <p>One chamber, shared session. A powerful differentiator for practices working with carers, couples, or family wellbeing.</p>
+    </div>
+    <div class="session-card fade-up fade-up-delay-1">
+      <span class="session-price">&pound;70&ndash;&pound;110</span>
+      <h3>Neurodiverse Facilitation</h3>
+      <p>A quiet, contained environment for neurodiverse children (8+) and adults. Biometric readings validate the experience. A genuinely underserved market.</p>
+    </div>
+    <div class="session-card fade-up fade-up-delay-2">
+      <span class="session-price">Premium</span>
+      <h3>Ultimate Realignment</h3>
+      <p>1 hour 15 minute immersive session covering all seven energy centres. Your highest-ticket offering and a natural upsell for committed regular clients.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT BENEFITS -->
+<section class="benefits-section" id="client-benefits">
+  <div class="section-header">
+    <span class="section-eyebrow">What Your Clients Experience</span>
+    <h2 class="section-h2">Real results your clients <em>can see and feel</em></h2>
+    <p class="section-intro">Understanding what The Ark does for end users is what drives bookings, referrals and retention in your practice.</p>
+  </div>
+  <div class="benefits-grid">
+    <div class="benefit-card fade-up">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#C4A35A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M12 6v6l4 2"/></svg>
+      </div>
+      <h3>Deep, Rapid Stress Relief</h3>
+      <p>Clients enter the chamber feeling overwhelmed and leave feeling genuinely calm, not just relaxed. The low-frequency resonance shifts the nervous system from a stress state into parasympathetic recovery in a single session, often within 35 to 40 minutes.</p>
+    </div>
+    <div class="benefit-card fade-up fade-up-delay-1">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#C4A35A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <h3>Measurable Before and After Results</h3>
+      <p>Every session includes an ECG biometric scan at the start and end. Clients receive a clear, visual readout showing changes in their heart rate variability, coherence, strain and adaptability. The data is tangible, personal and compelling.</p>
+    </div>
+    <div class="benefit-card fade-up fade-up-delay-2">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#C4A35A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a5 5 0 0 0-10 0"/><line x1="12" y1="2" x2="12" y2="9"/><line x1="4.22" y1="10.22" x2="5.64" y2="11.64"/><line x1="1" y1="18" x2="3" y2="18"/><line x1="21" y1="18" x2="23" y2="18"/><line x1="18.36" y1="11.64" x2="19.78" y2="10.22"/></svg>
+      </div>
+      <h3>Improved Sleep and Recovery</h3>
+      <p>Clients regularly report significantly better sleep quality in the days following a session. The parasympathetic activation triggered by the chamber supports the body's natural recovery cycles, making it particularly effective for those dealing with burnout, fatigue or insomnia.</p>
+    </div>
+    <div class="benefit-card fade-up">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#C4A35A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </div>
+      <h3>Emotional Clarity and Mood Lift</h3>
+      <p>Many clients describe a lightness and mental clarity after a session that they haven't experienced with any other therapy. Sound at specific frequencies has a direct effect on emotional processing, helping clients move through anxiety, low mood and mental fog more effectively.</p>
+    </div>
+    <div class="benefit-card fade-up fade-up-delay-1">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#C4A35A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+      </div>
+      <h3>Support for Neurodiversity</h3>
+      <p>The Ark provides a safe, non-stimulating, fully contained environment uniquely suited to neurodiverse individuals including those with autism, ADHD and sensory processing differences. Parents and carers report visible changes in regulation after sessions for children aged 8 and above.</p>
+    </div>
+    <div class="benefit-card fade-up fade-up-delay-2">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#C4A35A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <h3>Co-Regulation for Couples and Carers</h3>
+      <p>Sharing a session creates a powerful shared experience of calm. Carers who are chronically stressed benefit from the same nervous system reset as their clients or loved ones, and couples find it deepens their connection in a way no conventional therapy offers.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SCIENCE -->
+<section class="science-section">
+  <div class="science-grid">
+    <div class="science-content fade-up">
+      <span class="section-eyebrow">The Science</span>
+      <h2>Backed by evidence.<br><em>Felt in the body.</em></h2>
+      <ul class="science-points" style="margin-top:1.5rem;">
+        <li class="science-point">
+          <div class="science-point-icon"></div>
+          <p class="science-point-text"><strong>Sound activates the parasympathetic nervous system,</strong> promoting deep relaxation and reducing the stress response at a physiological level, not just a perceptual one.</p>
+        </li>
+        <li class="science-point">
+          <div class="science-point-icon"></div>
+          <p class="science-point-text"><strong>Vibroacoustic therapy has shown clinical promise</strong> in muscle recovery, fibromyalgia management, and even early-stage Parkinson's symptom support.</p>
+        </li>
+        <li class="science-point">
+          <div class="science-point-icon"></div>
+          <p class="science-point-text"><strong>Quartz amplifies and stabilises resonance,</strong> creating a consistent vibrational environment that supports nervous system regulation throughout the session.</p>
+        </li>
+        <li class="science-point">
+          <div class="science-point-icon"></div>
+          <p class="science-point-text"><strong>ECG biometrics measure HRV in real time,</strong> giving practitioners and clients an objective, before-and-after picture of nervous system change that no other single therapy can match.</p>
+        </li>
+      </ul>
+    </div>
+    <div class="biometric-box fade-up fade-up-delay-1">
+      <h3>The Biometric Advantage</h3>
+      <p>Every Ark session begins and ends with a non-invasive ECG biometric reading. The system measures heart rate variability and generates a clear visual report showing levels of balance, coherence, strain and adaptability across the body's regulatory systems.</p>
+      <p>This isn't just a clinical tool, it's your most powerful sales and retention asset. Clients who see their own data respond differently to the experience.</p>
+      <div class="biometric-metrics">
+        <div class="biometric-metric"><span class="biometric-metric-val">HRV</span><span class="biometric-metric-label">Heart Rate Variability</span></div>
+        <div class="biometric-metric"><span class="biometric-metric-val">4</span><span class="biometric-metric-label">Metrics Reported</span></div>
+        <div class="biometric-metric"><span class="biometric-metric-val">30s</span><span class="biometric-metric-label">Reading Duration</span></div>
+        <div class="biometric-metric"><span class="biometric-metric-val">100%</span><span class="biometric-metric-label">Non-Invasive</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <div class="section-header">
+    <span class="section-eyebrow">Client Experiences</span>
+    <h2 class="section-h2">What happens when <em>your clients discover The Ark</em></h2>
+    <p class="section-intro">These aren't reviews of a pleasant hour, they describe experiences clients have never had anywhere else.</p>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card fade-up">
+      <span class="testimonial-quote">&ldquo;</span>
+      <div class="testimonial-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+      <p class="testimonial-text">I couldn't recommend this highly enough if I could use a million words. It's cleared my mind and lifted my mood more than anything I've ever done in my life.</p>
+      <span class="testimonial-author">Sarah K, Alderley Edge</span>
+    </div>
+    <div class="testimonial-card fade-up fade-up-delay-1">
+      <span class="testimonial-quote">&ldquo;</span>
+      <div class="testimonial-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+      <p class="testimonial-text">Amazing, one of the best experiences I have ever had. I honestly haven't felt this good in a very long time. I will definitely be recommending The Ark to everyone I know.</p>
+      <span class="testimonial-author">Emma T, September 2025</span>
+    </div>
+    <div class="testimonial-card fade-up">
+      <span class="testimonial-quote">&ldquo;</span>
+      <div class="testimonial-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+      <p class="testimonial-text">I was quite sceptical at first. From the onset I was made to feel at ease. I would definitely recommend The Ark. I've already booked for a second session.</p>
+      <span class="testimonial-author">James R, Manchester</span>
+    </div>
+    <div class="testimonial-card fade-up fade-up-delay-1">
+      <span class="testimonial-quote">&ldquo;</span>
+      <div class="testimonial-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+      <p class="testimonial-text">The statistics provided revealed several aspects of my health I was completely unaware of. I am looking forward to monitoring my progress in the months ahead.</p>
+      <span class="testimonial-author">Niamh B, County Kerry</span>
+    </div>
+  </div>
+</section>
+
+<!-- CURRENT LOCATIONS -->
+<section class="locations-section" id="locations">
+  <div class="section-header">
+    <span class="section-eyebrow">Where You Can Find Us</span>
+    <h2 class="section-h2">The Ark is live and <em>already operating</em> across the UK and Ireland</h2>
+    <p class="section-intro">Visit one of our existing locations to experience a session for yourself before making any commitment.</p>
+  </div>
+  <div class="locations-grid">
+    <div class="location-card fade-up">
+      <div class="location-pin"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg></div>
+      <h3>Ashton-under-Lyne</h3><p>Greater Manchester</p>
+    </div>
+    <div class="location-card fade-up fade-up-delay-1">
+      <div class="location-pin"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg></div>
+      <h3>Manchester City Centre</h3><p>Greater Manchester</p>
+    </div>
+    <div class="location-card fade-up fade-up-delay-2">
+      <div class="location-pin"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg></div>
+      <h3>Alderley Edge</h3><p>Cheshire</p>
+    </div>
+    <div class="location-card fade-up fade-up-delay-3">
+      <div class="location-pin"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg></div>
+      <h3>County Kerry</h3><p>Republic of Ireland</p>
+    </div>
+  </div>
+</section>
+
+<!-- INVESTMENT -->
+<section class="investment-section" id="investment">
+  <div class="section-header">
+    <span class="section-eyebrow">The Investment</span>
+    <h2 class="section-h2">Transparent numbers.<br><em>Clear commercial foundation.</em></h2>
+    <p class="section-intro">The Ark franchise is structured to give you every advantage in your first year, including a completely free franchise fee period while you build your client base.</p>
+  </div>
+  <div class="investment-grid">
+    <div class="investment-card fade-up">
+      <h3>Fees &amp; Structure</h3>
+      <table class="fee-table">
+        <tr class="highlight"><td>Chamber &amp; installation</td><td>&pound;21,000 + VAT</td></tr>
+        <tr><td>Initial term</td><td>5 years</td></tr>
+        <tr><td>Franchise fee, first 6 months</td><td>Free</td></tr>
+        <tr><td>Months 7 to 12</td><td>8% of revenue</td></tr>
+        <tr><td>Year 2</td><td>7% of revenue</td></tr>
+        <tr><td>Year 3</td><td>6% of revenue</td></tr>
+        <tr><td>Year 4+</td><td>5% of revenue</td></tr>
+        <tr><td>Alternative flat fee</td><td>&pound;2,750 per year</td></tr>
+      </table>
+    </div>
+    <div class="investment-card fade-up fade-up-delay-1">
+      <h3>Territory &amp; Protection</h3>
+      <ul class="territory-list">
+        <li class="territory-item"><div class="territory-dot"></div><p class="territory-text"><strong style="color:rgba(245,240,232,0.85);">Rural areas:</strong> No competitor Ark within a 30-minute drive of your location.</p></li>
+        <li class="territory-item"><div class="territory-dot"></div><p class="territory-text"><strong style="color:rgba(245,240,232,0.85);">Urban areas:</strong> No competitor Ark within the same town or borough.</p></li>
+        <li class="territory-item"><div class="territory-dot"></div><p class="territory-text"><strong style="color:rgba(245,240,232,0.85);">City centre:</strong> Territories confirmed on application, city centre locations available now.</p></li>
+        <li class="territory-item"><div class="territory-dot"></div><p class="territory-text"><strong style="color:rgba(245,240,232,0.85);">UK exclusivity:</strong> The Ark holds full UK IP rights via the technology owner. No other franchise route exists in the UK.</p></li>
+        <li class="territory-item"><div class="territory-dot"></div><p class="territory-text"><strong style="color:rgba(245,240,232,0.85);">Zero franchise fee for 6 months:</strong> Your first six months are completely fee-free, giving you full runway to build your session volume before paying anything back.</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- BOOK A CALL -->
+<section class="call-section" id="book-call">
+  <h2>Ready to talk? <em>Book a call with Martin.</em></h2>
+  <p>A 30-minute conversation to answer your questions, confirm your territory availability, and explore whether The Ark is the right fit for your practice.</p>
+  <a href="https://calendly.com" target="_blank" class="btn-dark">Book a call with Martin O'Malley &rarr;</a>
+</section>
+
+<!-- GET INFORMATION (LEAD FORM) -->
+<section class="cta-section" id="get-information">
+  <div class="cta-container">
+    <div class="cta-left">
+      <span style="font-size:0.7rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--ark-gold); margin-bottom:1rem; display:block;">Franchise Information Pack</span>
+      <h2>Get the full picture before you <em>decide anything</em></h2>
+      <p>Fill in the short form and we'll send you the complete franchise information pack, including the full business case, territory availability in your area, and everything you need to make an informed decision.</p>
+      <p>No hard sell. No obligation. Just the information you need, followed up personally by Martin.</p>
+      <div class="cta-contact" style="margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(196,163,90,0.2);">
+        <span class="cta-contact-name">Martin O'Malley</span>
+        <span class="cta-contact-role">Founder, The Ark Wellness</span>
+      </div>
+    </div>
+    <div class="cta-right">
+      <h3>Send me the franchise pack</h3>
+      <form id="lead-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="fname" placeholder="Jane" required />
+          </div>
+          <div class="form-group">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lname" placeholder="Smith" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="jane@yourcentre.co.uk" required />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="07700 000000" />
+        </div>
+        <div class="form-group">
+          <label for="business">Your Business Name</label>
+          <input type="text" id="business" name="business" placeholder="Your Wellness Centre" />
+        </div>
+        <div class="form-group">
+          <label for="location">Your Town / City</label>
+          <input type="text" id="location" name="location" placeholder="e.g. Leeds" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Anything you'd like to know upfront?</label>
+          <textarea id="message" name="message" placeholder="Optional, any questions or context welcome"></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send me the information pack &rarr;</button>
+      </form>
+      <div class="modal-success" id="form-success">
+        <h3>Thank you, <em>we'll be in touch</em></h3>
+        <p>Martin will personally follow up within 24 hours with the franchise information pack and confirmation of territory availability in your area.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRY IT -->
+<section class="try-section" id="try-it">
+  <div class="try-image">
+    <img src="ark-session.jpg" alt="Client preparing for an Ark session, sitting on the chamber bed with an eye mask" />
+  </div>
+  <div class="try-content">
+    <span class="section-eyebrow">Experience It First</span>
+    <h2>Before you invest, <em>feel what your clients will feel.</em></h2>
+    <p>The best way to understand the Ark's commercial potential is to experience a session yourself. We invite serious franchise enquiries to visit an existing Ark location for a complimentary session, so you can see the biometric data, feel the effect, and understand exactly what you're bringing into your practice.</p>
+    <p>Sessions available at Ashton-under-Lyne, Manchester City Centre, Alderley Edge and County Kerry.</p>
+    <a href="mailto:franchise@arkwellness.co.uk" class="btn-primary">Book a free session &rarr;</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="ark-logo.png" alt="The Ark logo" />
+  </div>
+  <span class="footer-copy">&copy; 2026 Ark Wellness Ltd. All rights reserved. UK franchise enquiries only.</span>
+  <div class="footer-links">
+    <a href="https://arkwellness.co.uk" target="_blank" class="footer-link">arkwellness.co.uk</a>
+    <a href="#investment" class="footer-link">Investment</a>
+    <a href="#get-information" class="footer-link">Enquire</a>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    document.getElementById('lead-form').style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const top = target.getBoundingClientRect().top + window.pageYOffset - 90;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
