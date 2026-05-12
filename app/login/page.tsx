@@ -21,8 +21,7 @@ export default function LoginPage() {
     if (mode === 'signup') {
       const { error: signUpError } = await supabase.auth.signUp({
         email, password,
-        options: { data: { name } },
-      })
+        options: { data: { name, email } } })
       if (signUpError) { setError(signUpError.message); setLoading(false); return }
       setSuccess('Check your email to confirm your account, then sign in.')
     } else {
