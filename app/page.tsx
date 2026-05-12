@@ -6,37 +6,23 @@ export default function HomePage() {
     <main className="page-wrapper">
       <Nav />
       {/* Hero */}
-      <section style={{
-        padding: '120px 48px 100px',
-        background: 'var(--deep-brown)',
-        textAlign: 'center',
-      }}>
-        <p style={{
-          fontSize: '11px', letterSpacing: '0.3em', textTransform: 'uppercase',
-          color: 'var(--gold)', marginBottom: '20px',
-        }}>The Ark Wellness — Booking Portal</p>
-        <h1 style={{
-          fontFamily: "'Cormorant Garamond', serif",
-          fontSize: 'clamp(42px, 5vw, 68px)',
-          fontWeight: 300, color: 'var(--cream)', lineHeight: 1.1,
-          marginBottom: '24px',
-        }}>
+      <section style={{ padding: '120px 48px 100px', background: 'var(--deep-brown)', textAlign: 'center' }}>
+        <p style={{ fontSize: '11px', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '20px' }}>The Ark Wellness</p>
+        <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(42px, 5vw, 68px)', fontWeight: 300, color: 'var(--cream)', lineHeight: 1.1, marginBottom: '24px' }}>
           Regulate. Release. <em style={{ color: 'var(--gold)' }}>Reset.</em>
         </h1>
         <p style={{ fontSize: '16px', color: 'rgba(245,240,232,0.65)', maxWidth: '520px', margin: '0 auto 40px', lineHeight: 1.8 }}>
-          Book your sound frequency therapy session at The Ark. 60-minute sessions available across four UK & Ireland locations.
+          Sound frequency therapy, quartz amplification and biometric validation. Nervous system regulation in as little as 60 minutes.
         </p>
-        <Link href="/book" className="btn-primary" style={{ fontSize: '11px' }}>
-          Book a Session
-        </Link>
+        <Link href="/book" className="btn-primary" style={{ fontSize: '11px' }}>Book a Session</Link>
       </section>
 
-      {/* Science */}
+      {/* Stats */}
       <section style={{ background: 'var(--parchment)', padding: '80px 48px', textAlign: 'center' }}>
         <p className="section-label">Evidence-Based Wellness</p>
         <h2 className="section-title" style={{ marginBottom: '16px' }}>Where Science Meets Soul</h2>
         <p style={{ fontSize: '15px', color: 'var(--text-mid)', maxWidth: '580px', margin: '0 auto 48px', lineHeight: 1.8 }}>
-          The Ark combines sound frequency therapy, quartz amplification and biometric validation to deliver profound nervous system regulation in as little as 60 minutes.
+          The Ark combines sound frequency therapy, quartz amplification and biometric validation to deliver profound nervous system regulation.
         </p>
         <div style={{ display: 'flex', gap: '40px', justifyContent: 'center', flexWrap: 'wrap' }}>
           {[
@@ -76,34 +62,38 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* How it works */}
-      <section style={{ background: 'var(--parchment)', padding: '90px 48px' }}>
-        <div style={{ maxWidth: '700px', margin: '0 auto', textAlign: 'center' }}>
-          <p className="section-label">Simple & Seamless</p>
-          <h2 className="section-title" style={{ marginBottom: '52px' }}>How to Book</h2>
+      {/* Sessions */}
+      <section className="sessions-section" id="sessions">
+        <div className="sessions-header">
+          <p className="section-label">Sessions</p>
+          <h2 className="section-title">Your Ark <em>Journey</em></h2>
+          <p style={{ fontSize: '15px', color: 'var(--text-mid)', lineHeight: 1.8 }}>
+            Each session is a fully immersive experience, combining cutting-edge biometric measurement with our unique sound frequency therapy protocols.
+          </p>
+        </div>
+        <div className="sessions-grid">
           {[
-            { n: '01', title: 'Choose Your Location', desc: 'Select from one of our four Ark locations across the UK and Ireland.' },
-            { n: '02', title: 'Pick a Date & Time', desc: 'See real-time availability and choose a 60-minute slot that suits you.' },
-            { n: '03', title: 'Confirm Your Session', desc: 'Enter your details and receive an instant confirmation by email.' },
-          ].map(({ n, title, desc }) => (
-            <div key={n} style={{ display: 'flex', gap: '28px', textAlign: 'left', marginBottom: '32px', alignItems: 'flex-start' }}>
-              <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '36px', fontWeight: 300, color: 'var(--gold)', lineHeight: 1, flexShrink: 0 }}>{n}</span>
-              <div>
-                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '22px', fontWeight: 400, color: 'var(--deep-brown)', marginBottom: '8px' }}>{title}</h3>
-                <p style={{ fontSize: '14px', color: 'var(--text-mid)', lineHeight: 1.7 }}>{desc}</p>
-              </div>
+            { name: 'Deep Calm', duration: '60 min', price: 'From £60', features: ['Nervous system reset', 'Heart rate variability improvement', 'Biometric validation pre/post'], featured: false },
+            { name: 'Better Sleep', duration: '60 min', price: 'From £60', features: ['Improved sleep quality', 'Cortisol regulation', 'Circadian rhythm reset'], featured: false },
+            { name: 'Full Ark Experience', duration: '90 min', price: 'From £90', features: ['Complete nervous system overhaul', 'Quartz amplification', 'Full biometric workup', 'Personalised protocol'], featured: true },
+          ].map(({ name, duration, price, features, featured }) => (
+            <div key={name} className={`session-card${featured ? ' featured' : ''}`}>
+              <p className="session-duration">{duration}</p>
+              <h3 className="session-name">{name}</h3>
+              <p className="session-price">{price}</p>
+              <ul className="session-features">
+                {features.map(f => <li key={f}>{f}</li>)}
+              </ul>
+              <Link href="/book" className="btn-book">Book This Session</Link>
             </div>
           ))}
-          <Link href="/book" className="btn-primary" style={{ marginTop: '16px' }}>Reserve Your Session</Link>
         </div>
       </section>
 
       {/* CTA */}
       <section style={{ background: 'var(--deep-brown)', padding: '90px 48px', textAlign: 'center' }}>
         <p style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontSize: '22px', color: 'var(--gold)', marginBottom: '16px' }}>"Where Science Meets Soul"</p>
-        <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(32px, 4vw, 50px)', fontWeight: 300, color: 'var(--cream)', marginBottom: '32px' }}>
-          Ready to Transform?
-        </h2>
+        <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(32px, 4vw, 50px)', fontWeight: 300, color: 'var(--cream)', marginBottom: '32px' }}>Ready to Transform?</h2>
         <Link href="/book" className="btn-primary">Book Your Session</Link>
       </section>
 

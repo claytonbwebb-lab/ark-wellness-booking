@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Book Your Session — The Ark Wellness',
-  description: 'Book a sound frequency therapy session at The Ark Wellness. Locations across the UK and Ireland.',
+  title: 'The Ark Wellness — Sound Frequency Therapy',
+  description: 'The Ark combines sound frequency therapy, quartz amplification and biometric validation to deliver profound nervous system regulation.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
