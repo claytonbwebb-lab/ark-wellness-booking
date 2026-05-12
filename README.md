@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ARK Wellness — Booking System
 
-## Getting Started
+Custom booking platform for The Ark Wellness. Located at `ark-final.vercel.app/booking`.
 
-First, run the development server:
+## Tech Stack
+- **Frontend:** Next.js 14 (App Router) + TypeScript
+- **Database/Auth:** Supabase (PostgreSQL + RLS)
+- **Email:** nodemailer via Zoho SMTP
+- **Hosting:** Vercel
 
+## Setup
+
+### 1. Supabase
+1. Create a new project at [supabase.com](https://supabase.com)
+2. Open **SQL Editor** and run `supabase/schema.sql`
+3. Go to **Project Settings → API** and copy:
+   - `Project URL` → `NEXT_PUBLIC_SUPABASE_URL`
+   - `anon public` key → `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+   - `service_role` secret → `SUPABASE_SERVICE_ROLE_KEY`
+
+### 2. Email
+- ARK Zoho SMTP: same credentials as BSL Zoho
+- `SMTP_HOST=smtp.zoho.eu`, `SMTP_PORT=587`
+- `SMTP_USER=info@brightstacklabs.co.uk`
+
+### 3. Deploy to Vercel
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cd ark-wellness-booking
+vercel --yes --token <token>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Or connect the GitHub repo (`claytonbwebb-lab/ark-wellness-booking`) to Vercel and set env vars there.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 4. Create Admin Account
+1. Go to your deployed app → `/login`
+2. Sign up with `hello@ark-wellness.life`
+3. In Supabase **SQL Editor**, run:
+```sql
+update profiles set role = 'admin' where email = 'hello@ark-wellness.life';
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Routes
+| Route | Description |
+|-------|-------------|
+| `/` | Marketing homepage |
+| `/book` | 3-step booking flow |
+| `/login` | Sign in / sign up |
+| `/dashboard` | Client booking management |
+| `/admin` | Weekly calendar view |
+| `/admin/bookings` | All bookings list |
+| `/admin/availability` | Per-location schedule manager |
 
-## Learn More
+## Database
+See `supabase/schema.sql` for full schema.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Tables: `profiles`, `locations`, `availability`, `bookings`
